@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<data class = "HeroAdapterBinding">
+        <variable
+            name="heroMain"
+            type="com.example.mvvmpractice.HeroVM"/>
+
+    <variable
+        name="iadapterClick"
+        type="com.example.mvvmpractice.AdapterClickListener"/>
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        app:cardElevation="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:onClick="@{()->iadapterClick.onAdapterClicked()}"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:padding="@dimen/_8sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_72sdp"
+                app:image_path="@{heroMain.image_path}"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_22sdp"
+                android:layout_toEndOf="@+id/image"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:text="@{heroMain.name}" />
+
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>
